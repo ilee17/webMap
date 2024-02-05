@@ -107,7 +107,7 @@
             container: 'map', // container ID
             style: 'mapbox://styles/mapbox/light-v10', // style URL
             zoom: 4, // starting zoom
-            center: [-97, 38] // starting center
+            center: [-97, 39] // starting center
         });
 
         // load data and add as layer
@@ -117,7 +117,7 @@
 
             map.on('load', function loadingData() {
                 map.addSource('us-covid-2020-rates', {
-                    type: 'json',
+                    type: 'geojson',
                     data: covidRates
                 });
 
@@ -130,17 +130,17 @@
                             'step',
                             ['get', 'rates'],
                             '#FFEDA0',   // stop_output_0
-                            20,          // stop_input_0
+                            25,          // stop_input_0
                             '#FED976',   // stop_output_1
-                            40,          // stop_input_1
+                            50,          // stop_input_1
                             '#FEB24C',   // stop_output_2
-                            60,          // stop_input_2
+                            75,          // stop_input_2
                             '#FD8D3C',   // stop_output_3
-                            80,         // stop_input_3
+                            100,         // stop_input_3
                             '#FC4E2A',   // stop_output_4
-                            100,         // stop_input_4
+                            125,         // stop_input_4
                             '#E31A1C',   // stop_output_5
-                            200,         // stop_input_5
+                            150,         // stop_input_5
                             '#BD0026'
                         ],
                         'fill-outline-color': '#BBBBBB',
@@ -149,13 +149,13 @@
                 });
 
                 const layers = [
-                    '0-1999',
-                    '2000-3999',
-                    '4000-4999',
-                    '5000-5999',
-                    '6000-6999',
-                    '7000-7999',
-                    '8000 and more'
+                    '0-24',
+                    '25-49',
+                    '50-74',
+                    '75-99',
+                    '100-124',
+                    '125-149',
+                    '150 and more'
                 ];
                 const colors = [
                     '#FFEDA070',
@@ -170,7 +170,7 @@
 
                 // create legend
                 const legend = document.getElementById('legend');
-                legend.innerHTML = "<b>2020 Covid Rates<br>(person/10kpeople)</b><br><br>";
+                legend.innerHTML = "<b>2020 Covid Rates<br></b>";
 
 
                 layers.forEach((layer, i) => {
