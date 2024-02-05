@@ -49,12 +49,12 @@
             center: [138, 38] // starting center
         });
         async function geojsonFetch() {
-            let response = await fetch('assets/us-covid-2020-rates.geojson');
+            let response = await fetch("/assets/us-covid-2020-rates.json");
             let covidRates = await response.json();
 
             map.on('load', function loadiningData() {
                 map.addSource('us-covid-2020-rates', {
-                    type: 'geoojson',
+                    type: 'json',
                     data: us-covid-2020-rates
                 });
                 map.addLayer({
