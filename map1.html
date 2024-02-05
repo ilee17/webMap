@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Earthquakes in Japan</title>
+    <title>US Covid Map</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
@@ -18,6 +18,20 @@
             top: 0;
             bottom: 0;
             width: 100%;
+        }
+
+        .map-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: rgba(255, 255, 255, 0.8)
+            border-style: solid;
+            border-width: 1px;
+            border-color: rgba(0, 0, 0, 0,2)
+            margin-left: 20px;
+            font-family: Arial, sans-serif;
+            overflow: auto;
+            border-radius: 3px;
         }
     </style>
 </head>
@@ -34,13 +48,29 @@
             minZoom: 4, // minimum zoom level of the map
             center: [138, 38] // starting center
         });
+        async function geojsonFetch() {
+            let response = await fetch('assets/us-covid-2020-rates.geojson');
+            let covidRates = await response.json();
+
+            map.on('load', function loadiningData() {
+                map.addSource('us-covid-2020-rates', {
+                    type: 'geoojson',
+                    data: us-covid-2020-rates
+                });
+                map.addLayer({
+                    'id':
+                })
+            })
+
+        }
+        geojsonFetch();
         map.on('load', () => {
-            map.addSource('earthquakes', {
+            map.addSource('us-covid-2020-rates', {
                 type: 'geojson',
-                data: 'assets/earthquakes.geojson'
+                data: 'assets/us-covid-2020-rates.geojson'
             });
             map.addLayer({
-                'id': 'earthquakes-point',
+                'id': '',
                 'type': 'circle',
                 'source': ' eathquakes'
             });
