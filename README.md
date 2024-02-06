@@ -6,7 +6,7 @@ This project is looking at the covid rates and number of cases in the UNited Sta
 ![](img/map1.png)
 ![](img/Map2.png)
 
-[Access the proportional map](https://ilee17.github.io/webMap/map2.html)
+[Access the proportional map](https://ilee17.github.io/webMap/map2.html)<br>
 [Access the choropleth map](https://ilee17.github.io/webMap/map1.html)
 ## Functions
 - mapbox
