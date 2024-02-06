@@ -84,8 +84,8 @@
             center: [-97, 39], // starting center
             projection: 'albers'
         });
-        const grades = [350, 700, 1000],
-            colors = ['rgb(208,209,230)', 'rgb(103,169,207)', 'rgb(1,108,89)'],
+        const grades = [700, 1500, 3000],
+            colors = ['rgb(400,209,230)', 'rgb(103,169,207)', 'rgb(1,108,89)'],
             radii = [2, 4, 10];
         //load data to the map as new layers.
         //map.on('load', function loadingData() {
@@ -94,7 +94,7 @@
             // add a source of the data and then add the layer out of the source
             map.addSource('us-covid-2020-counts', {
                 type: 'geojson',
-                data: 'assets/us-covid-2020-counts.geojson'
+                data: 'assets/us-covid-2020-counts.json'
             });
             map.addLayer({
                 'id': 'count-data',
